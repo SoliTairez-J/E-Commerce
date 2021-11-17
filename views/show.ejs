@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include ("layout") %>
+    <div class="container">
+        <div class="row">
+            <%- include ("sidebar") %>
+            <div class="col-lg-9">
+                <div class="card mt-4">
+                    <% products.forEach(function(product) { %>
+                    <img src="<%= product.img %>" alt="" class="card-img-top img-fluid">
+                    <div class="card-body">
+                        <h3 class="card-title">ชื่อสินค้า : <%= product.name %></h3>
+                        <h4>ราคา : $ <%= formatMoney(product.price) %></h4>
+                        <p class="card-text"><%= product.description %></p>
+                        <button type="button" name="button" class="btn btn-success">เพิ่มลงตะกร้า</button>
+                    </div>
+                    <% }) %> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="py-5 bg-dark">
+        <div class="container">
+          <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+        </div>
+    </footer>
+</body>
+</html>
